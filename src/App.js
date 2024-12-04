@@ -4,6 +4,8 @@ import "./style.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import UseEffect from "./components/UseEffect";
+import PokemonApp from "./components/PokeApiLesson";
 
 function App()
 {
@@ -55,6 +57,8 @@ function App()
             <Header toggleDisplay={toggleDisplay} purchaseAmountDisplayed={purchaseAmountDisplayed} />
             <Body checkoutIsDisplayed={checkoutIsDisplayed} addItem={addItem} removeItem={removeItem} checkoutItems={checkoutItems} checkoutTotal={checkoutTotal} />
             {/* <Footer /> */}
+            {/* <UseEffect /> */}
+            <PokemonApp />
         </div>
     )
 }

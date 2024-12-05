@@ -1,43 +1,14 @@
 import React, {useState} from "react";
 import ItemsRender from "./ItemsRender";
 import CheckoutRender from "./CheckoutRender";
-import { groceryData } from "./GroceryData";
+import DataImport from "./DataImport";
 
 function Body({checkoutIsDisplayed, addItem, removeItem, checkoutItems, checkoutTotal})
 {
-    const [groceries, setGroceries] = useState(groceryData);
-    const [selectedCategory, setSelectedCategory] = useState('');
-
-    const filteredGroceries = groceries.filter(item =>
-        !selectedCategory || item.category === selectedCategory
-    );
-
     return(
         <div class="row body-container">
             <div class="col-8">
-                <div class="row item-category-row">
-                    <div class="col-9">
-                        <h3>{selectedCategory}</h3>
-                    </div>
-                    <div class="col-3">
-                        <select onChange={(event) => setSelectedCategory(event.target.value)} value={selectedCategory}>
-                            <option value="">All Categories</option>
-                            <option value="Fruit">Fruit</option>
-                            <option value="Bakery">Bakery</option>
-                            <option value="Dairy">Dairy</option>
-                            <option value="Vegetable">Vegetable</option>
-                            <option value="Meat">Meat</option>
-                            <option value="Beverage">Beverage</option>
-                            <option value="Grains">Grains</option>
-                            <option value="Pantry">Pantry</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row item-preview-row">
-                    {filteredGroceries.map((grocery) => (
-                        <ItemsRender addItem={addItem} id={grocery.id} name={grocery.name}  price={grocery.price} description={grocery.description} category={grocery.category} rating={grocery.rating} />
-                    ))}
-                </div>
+                <DataImport addItem={addItem} />
             </div>
             {checkoutIsDisplayed && (
                 <div class="col-4">
